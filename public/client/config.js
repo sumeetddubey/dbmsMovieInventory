@@ -36,6 +36,11 @@
                 controller:'UserHomepageController',
                 controllerAs:'model'
             })
+            .when('/purchase', {
+                templateUrl:'client/views/purchase/purchase.view.html',
+                controller:'PurchaseController',
+                controllerAs:'model'
+            })
 
     })
 })();

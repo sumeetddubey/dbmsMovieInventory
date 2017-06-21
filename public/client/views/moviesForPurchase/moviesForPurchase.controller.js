@@ -5,7 +5,7 @@
     var app=angular.module('movieApp');
     app.controller('MoviesForPurchaseController', MoviesForPurchaseController);
 
-    function MoviesForPurchaseController(MovieService){
+    function MoviesForPurchaseController(MovieService, $location){
         var vm=this;
         vm.loadMore=loadMore;
 
