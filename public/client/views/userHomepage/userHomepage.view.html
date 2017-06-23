@@ -1,7 +1,15 @@
 <h3>Welcome {{model.currUser.user_username}}</h3>
 <div class="btn-group-vertical">
     <button class="btn btn-primary" ng-click="model.moviesForPurchase()">Purchase Movies to Watch</button>
-    <button class="btn btn-default" ng-click="model.search()">Search for movies</button>
-    <button class="btn btn-default" ng-click="model.viewMovies()">View our database</button>
+    <!--<button class="btn btn-default" ng-click="model.search()">Search for movies</button>-->
+    <button class="btn btn-default" ng-click="model.awards()">View our awards database</button>
     <button class="btn btn-default" ng-click="model.accountSettings()">Account Settings</button>
+    <button class="btn btn-default" ng-click="model.logout()">Logout</button>
+</div>
+
+<div class="row margin-top-3">
+    <p>My Movies:</p>
+    <ul ng-repeat="entry in model.userMovies">
+        <li>{{entry.movie_name}}</li>
+    </ul>
 </div>

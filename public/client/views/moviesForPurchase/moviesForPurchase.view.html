@@ -1,11 +1,33 @@
-<div class="table-responsive" infinite-scroll='model.loadMore()' infinite-scroll-distance='2'>
+<div class="row margin-3">
+    <div class="col-xs-12">
+        <form class="form-inline">
+            <div class="col-xs-3">
+                <label for="search-box">Search</label>
+                <input id="search-box" class="form-control" type="text" ng-model='model.search.str'>
+            </div>
+            <div class="dropdown col-xs-3">
+                <a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="btn btn-default dropdown-toggle">
+                    <span id="selected">Chose option </span><span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a ng-click="model.setSearchType('movie')">By Movie Title </a></li>
+                    <li><a ng-click="model.setSearchType('actor')">By Actor </a></li>
+                    <li><a ng-click="model.setSearchType('director')">By Director </a></li>
+                </ul>
+                <a ng-click="model.viewAll()">View all</a>
+            </div>
+            <button class="btn btn-danger" ng-click="model.performSearch(model.search)">Search</button>
+        </form>
+    </div>
+</div>
+<div class="table-responsive row">
     <table class="table">
         <thead>
         <tr>
             <th>#</th>
             <th>Name</th>
+            <th>Director</th>
+            <th>Actors</th>
             <th>Duration</th>
-            <th>Language</th>
             <th>IMDB Score</th>
             <th>Year</th>
             <th>Definition</th>
@@ -13,15 +35,16 @@
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="movie in model.currentMovies">
+        <tr ng-repeat="movie in model.searchResults">
             <td>{{$index+1}}</td>
             <td>{{movie.movie_name}}</td>
+            <td>{{movie.director_name}}</td>
+            <td>{{movie.movie_actors}}</td>
             <td>{{movie.movie_duration}}</td>
-            <td>{{movie.movie_language}}</td>
             <td>{{movie.movie_imdb_score}}</td>
             <td>{{movie.movie_year_released}}</td>
-            <td>{{movie.movie_definition}}</td>
-            <td>{{movie.movie_price}}</td>
+            <td>{{movie.quality}}</td>
+            <td>{{movie.price}}</td>
             <td><a ng-click="model.buyMovie(movie)">Buy Now!</a></td>
         </tr>
         </tbody>

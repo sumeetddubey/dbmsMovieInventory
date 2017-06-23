@@ -5,7 +5,7 @@
     var app=angular.module('movieApp');
     app.controller('RegisterController', RegisterController);
 
-    function RegisterController(UserService, toastr){
+    function RegisterController(UserService, $location, toastr){
         var vm=this;
         vm.register=register;
 
@@ -22,6 +22,12 @@
                         .then(
                             function(res){
                                 toastr.success('Success!');
+                                UserService.login(user)
+                                    .then(function (res){
+                                        UserService.setCurrentUser(res);
+                                        console.log(res);
+                                        $location.url('/userHomepage');
+                                    })
                             },
                             function(err){
                                 if(err.data.errno===1062){

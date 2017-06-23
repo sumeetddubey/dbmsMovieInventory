@@ -5,9 +5,11 @@
     var app=angular.module('movieApp');
     app.controller('MainController', MainController);
 
-    function MainController($location){
+    function MainController($location, $rootScope){
         var vm=this;
         vm.home=home;
+
+        $rootScope.admin=false;
 
         function home(){
             $location.url('/')

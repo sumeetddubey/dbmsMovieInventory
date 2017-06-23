@@ -41,6 +41,25 @@
                 controller:'PurchaseController',
                 controllerAs:'model'
             })
-
+            .when('/search', {
+                templateUrl:'client/views/search/search.view.html',
+                controller:'SearchController',
+                controllerAs:'model'
+            })
+            .when('/userAccount', {
+                templateUrl:'client/views/userAccount/userAccount.view.html',
+                controller:'UserAccountController',
+                controllerAs:'model'
+            })
+            .when('/admin', {
+                templateUrl:'client/views/admin/admin.view.html',
+                controller:'AdminController',
+                controllerAs:'model'
+            })
+            .when('/awards', {
+                templateUrl:'client/views/awards/awards.view.html',
+                controller:'AwardsController',
+                controllerAs:'model'
+            })
     })
 })();

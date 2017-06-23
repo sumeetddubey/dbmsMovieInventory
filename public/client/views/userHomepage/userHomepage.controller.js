@@ -9,20 +9,46 @@
         var vm=this;
 
         vm.currUser=UserService.getCurrentUser();
-        vm.viewMovies=viewMovies;
-        vm.register=register;
+        vm.awards=awards;
+        vm.search=search;
         vm.moviesForPurchase=moviesForPurchase;
+        vm.getUserMovies=getUserMovies;
+        vm.accountSettings=accountSettings;
+        vm.logout=logout;
+
+        getUserMovies();
 
         function moviesForPurchase(){
             $location.url('/moviesForPurchase');
         }
 
-        function viewMovies(){
-            $location.url('/viewMovies');
+        function awards(){
+            $location.url('/awards');
         }
 
-        function register(){
-            $location.url('/register');
+        function search(){
+            $location.url('/search');
+        }
+
+        function getUserMovies(){
+            UserService.getUserMovies()
+                .then(
+                    function(doc){
+                        vm.userMovies=doc.data[0];
+                    },
+                    function(err){
+                        console.log(err);
+                    }
+                )
+        }
+
+        function accountSettings(){
+            $location.url('/userAccount');
+        }
+
+        function logout(){
+            UserService.logout();
+            $location.url('/');
         }
     }
 })();

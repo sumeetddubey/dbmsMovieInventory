@@ -9,13 +9,11 @@
             <input id="password" class="form-control" type="password" ng-model="user.password">
         </div>
         <div class="radio">
-            <label><input type="radio" name="loginRadio">Login as user</label>
+            <label ng-click="model.setUser()"><input type="radio" checked="checked" name="loginRadio">Login as user</label>
         </div>
         <div class="radio">
-            <label><input type="radio" name="loginRadio">Login as admin</label>
+            <label ng-click="model.setAdmin()"><input type="radio" name="loginRadio">Login as admin</label>
         </div>
-
         <button class="btn btn-primary" ng-click="model.login(user)">Login</button>
-
     </form>
 </div>

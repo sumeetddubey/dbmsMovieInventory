@@ -7,10 +7,41 @@
 
     function MoviesForPurchaseController(MovieService, $location){
         var vm=this;
-        vm.loadMore=loadMore;
+        vm.search={};
 
+        vm.loadMore=loadMore;
         vm.getMoviesForPurchase=getMoviesForPurchase;
         vm.buyMovie=buyMovie;
+        vm.setSearchType=setSearchType;
+        vm.performSearch=performSearch;
+        vm.viewAll=viewAll;
+
+        viewAll();
+
+        function viewAll(){
+            vm.search.table='purchase';
+            vm.search.type='all';
+            performSearch(vm.search);
+        }
+
+        function setSearchType(type){
+            vm.search.table='purchase';
+            vm.search.type=type;
+        }
+
+        function performSearch(obj){
+            MovieService.performSearch(obj)
+                .then(
+                    function(res){
+                        vm.searchResults=res.data[0];
+                        //console.log(vm.searchResults);
+                    }
+                )
+        }
+
+        $('.dropdown-menu a').click(function(){
+            $('#selected').text($(this).text());
+        });
 
         function buyMovie(movie){
             MovieService.setCurrentMovie(movie);
