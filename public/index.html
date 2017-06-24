@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="movieApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>moviestop</title>
+
+    <!-- CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/angular-toastr/dist/angular-toastr.css" />
+
+    <!--custom CSS-->
+    <link href="client/css/style.css" rel="stylesheet">
+</head>
+<body ng-controller="MainController as model" class="container">
+<h2 class="heading">MovieStop</h2>
+<div data-ng-view></div>
+<div ng-show="model.inHomePage()">
+    <img class="home-image" src="client/static/rd_logo.jpg">
+</div>
+<!--loading jQuery-->
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<!--loading angularJs-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.4/angular.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.4/angular-animate.js"></script>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.4/angular-touch.min.js"></script>-->
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.2/angular-ui-router.min.js"></script>-->
+
+<!--loading angularJs dependencies-->
+<script src="https://code.angularjs.org/1.5.0/angular-route.min.js"></script>
+
+<!--scripts-->
+<script src="client/app.js"></script>
+<script src="client/main.js"></script>
+<script src="client/config.js"></script>
+<script src="https://unpkg.com/angular-toastr/dist/angular-toastr.tpls.js"></script>
+<script type='text/javascript' src='client/js/ng-infinite-scroll.min.js'></script>
+
+<!--services-->
+<script src="client/services/user.service.js"></script>
+<script src="client/services/movie.service.js"></script>
+
+<!--controllers-->
+<script src="client/views/home/home.controller.js"></script>
+<script src="client/views/login/login.controller.js"></script>
+<script src="client/views/register/register.controller.js"></script>
+<script src="client/views/viewMovies/viewMovies.controller.js"></script>
+<script src="client/views/moviesForPurchase/moviesForPurchase.controller.js"></script>
+<script src="client/views/userHomepage/userHomepage.controller.js"></script>
+<script src="client/views/purchase/purchase.controller.js"></script>
+<script src="client/views/search/search.controller.js"></script>
+<script src="client/views/userAccount/userAccount.controller.js"></script>
+<script src="client/views/admin/admin.controller.js"></script>
+<script src="client/views/awards/awards.controller.js"></script>
+
+</body>
+</html>
